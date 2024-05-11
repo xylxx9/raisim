@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="__bl_biped.SLDASM">
+  <mujoco>
+    <compiler meshdir="" balanceinertia="true" discardvisual="false"/>
+  </mujoco>
+  <link
+    name="waist">
+    <inertial>
+      <origin
+        xyz="0.038677081963688 -3.32372205057418E-05 -0.04427781084424"
+        rpy="0 0 0" />
+      <mass
+        value="0.33995088448808" />
+      <inertia
+        ixx="0.000246673015670079"
+        ixy="3.44286390680086E-07"
+        ixz="1.43163458173957E-06"
+        iyy="0.000148692070423899"
+        iyz="3.72538180339757E-08"
+        izz="0.000204714791732978" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes/waist.obj"   />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes/waist.obj"   />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="right_hip">
+    <inertial>
+      <origin
+        xyz="0.0114579382338046 0.00367368041725421 0.0649332056380108"
+        rpy="0 0 0" />
+      <mass
+        value="0.0875392005484047" />
+      <inertia
+        ixx="4.529697815221E-05"
+        ixy="-2.23343322001991E-06"
+        ixz="9.39120908692863E-06"
+        iyy="6.79866739387295E-05"
+        iyz="1.07854914578483E-06"
+        izz="2.9122982088834E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\right_hip.obj"   />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\right_hip.obj"   />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_hip_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.066 -0.078"
+      rpy="0 1.5708 0" />
+    <parent
+      link="waist" />
+    <child
+      link="right_hip" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="right_thigh">
+    <inertial>
+      <origin
+        xyz="0.0850658949657983 -0.0693243387254257 0.0237064811763446"
+        rpy="0 0 0" />
+      <mass
+        value="0.103735259298949" />
+      <inertia
+        ixx="0.000114345917944096"
+        ixy="0.000119804211580517"
+        ixz="-9.90719580142571E-06"
+        iyy="0.000163937397700962"
+        iyz="8.05707824277063E-06"
+        izz="0.000267838146844208" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\right_thigh.obj"   />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\right_thigh.obj"   />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="0.040816 -0.006421 0.04445"
+      rpy="1.5708 0 0.088416" />
+    <parent
+      link="right_hip" />
+    <child
+      link="right_thigh" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="right_leg">
+    <inertial>
+      <origin
+        xyz="0.0284752461683688 0.0834504709208392 0.0110423743468693"
+        rpy="0 0 0" />
+      <mass
+        value="0.0539703735805574" />
+      <inertia
+        ixx="0.000188228800753301"
+        ixy="-6.31881116045188E-05"
+        ixz="-1.04365345369263E-06"
+        iyy="2.46243703426454E-05"
+        iyz="-3.05842630360839E-06"
+        izz="0.000210304255775009" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\right_leg.obj"   />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\right_leg.obj"   />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_knee"
+    type="revolute">
+    <origin
+      xyz="0.15506 -0.12632 0.03745"
+      rpy="0 0 -0.68361" />
+    <parent
+      link="right_thigh" />
+    <child
+      link="right_leg" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="right_foot">
+    <inertial>
+      <origin
+        xyz="0.00606586513173374 -0.00350212345277778 7.07219635076584E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.0165935132876087" />
+      <inertia
+        ixx="6.21555465820842E-06"
+        ixy="-3.27060260386137E-06"
+        ixz="-1.20719326460903E-11"
+        iyy="2.43898366925776E-06"
+        iyz="-1.62383482607545E-11"
+        izz="8.21667689567158E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\right_foot.obj"   />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\right_foot.obj"   />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_ankle"
+    type="revolute">
+    <origin
+      xyz="0.064592 0.18928 0.01195"
+      rpy="0 0 1.2419" />
+    <parent
+      link="right_leg" />
+    <child
+      link="right_foot" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="left_hip">
+    <inertial>
+      <origin
+        xyz="0.0113308762272108 -0.00404728029156714 0.0649336339245575"
+        rpy="0 0 0" />
+      <mass
+        value="0.0875377251233282" />
+      <inertia
+        ixx="4.54568167922356E-05"
+        ixy="2.97530048801472E-06"
+        ixz="9.35182322885876E-06"
+        iyy="6.78134358622438E-05"
+        iyz="-1.38691253355495E-06"
+        izz="2.91118185474019E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\left_hip.obj"   />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\left_hip.obj"   />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_hip_joint_"
+    type="revolute">
+    <origin
+      xyz="0 0.066 -0.078"
+      rpy="0 1.5708 0" />
+    <parent
+      link="waist" />
+    <child
+      link="left_hip" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="left_thigh">
+    <inertial>
+      <origin
+        xyz="0.0879001864860011 -0.0656956451140453 -0.0237065385093673"
+        rpy="0 0 0" />
+      <mass
+        value="0.103733925421667" />
+      <inertia
+        ixx="0.000104604680402397"
+        ixy="0.000117356974885307"
+        ixz="1.02197655145011E-05"
+        iyy="0.000173692879460535"
+        iyz="-7.65437126562512E-06"
+        izz="0.000267822181405709" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\left_thigh.obj"   />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\left_thigh.obj"   />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="0.041005 0.0050758 0.04445"
+      rpy="1.5708 0 -0.12129" />
+    <parent
+      link="left_hip" />
+    <child
+      link="left_thigh" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="left_leg">
+    <inertial>
+      <origin
+        xyz="0.033132361686716 0.081713315775211 -0.00704237040980224"
+        rpy="0 0 0" />
+      <mass
+        value="0.0539704063407019" />
+      <inertia
+        ixx="0.000180606080587754"
+        ixy="-7.19843926692674E-05"
+        ixz="1.21425086275742E-06"
+        iyy="3.22471525146638E-05"
+        iyz="2.99479228016448E-06"
+        izz="0.000210304316971236" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\left_leg.obj"   />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\left_leg.obj"   />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_knee"
+    type="revolute">
+    <origin
+      xyz="0.16018 -0.11976 -0.04145"
+      rpy="0 0 -0.64201" />
+    <parent
+      link="left_thigh" />
+    <child
+      link="left_leg" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+  <link
+    name="left_foot">
+    <inertial>
+      <origin
+        xyz="0.0060658711862378 -0.00350215379156843 5.99032361492391E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.0165935434374477" />
+      <inertia
+        ixx="6.21554285879244E-06"
+        ixy="-3.27060079718965E-06"
+        ixz="-1.49386196844564E-11"
+        iyy="2.43898548765201E-06"
+        iyz="-1.87280829480389E-11"
+        izz="8.21666243950823E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\left_foot.obj"   />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes\left_foot.obj"   />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_ankle"
+    type="revolute">
+    <origin
+      xyz="0.075147 0.18535 -0.00795"
+      rpy="0 0 1.1856" />
+    <parent
+      link="left_leg" />
+    <child
+      link="left_foot" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+</robot>

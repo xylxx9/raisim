@@ -1,0 +1,86 @@
+<mujoco model="bl_biped">
+    <compiler angle="degree"
+              meshdir="./mesh"
+              inertiafromgeom="true"
+              balanceinertia="true"
+              boundmass="0.001"
+              boundinertia="0.001"/>
+    <option timestep="0.002"/>
+    <size njmax="500" nconmax="100"/>
+    <default>
+        <geom conaffinity="0" contype="1" type="mesh" density="1000" rgba="0.4 0.6 .8 1" solimp="0.0 0.8 0.01" solref="0.02 1" friction="1 0.5 0.5"/>
+        <joint armature="1" damping="1" limited="true" solimplimit="0 .8 .03" solreflimit=".02 1" stiffness="0"/>
+        <motor ctrllimited="true" ctrlrange="-1 1"/>
+    </default>
+    <asset>
+        <mesh name="waist" file="waist.STL" />
+        <mesh name="right_hip" file="right_hip.STL" />
+        <mesh name="right_thigh" file="right_thigh.STL" />
+        <mesh name="right_leg" file="right_leg.STL" />
+        <mesh name="right_foot" file="right_foot.STL" />
+        <mesh name="left_hip" file="left_hip.STL" />
+        <mesh name="left_thigh" file="left_thigh.STL" />
+        <mesh name="left_leg" file="left_leg.STL" />
+        <mesh name="left_foot" file="left_foot.STL" />
+        <texture builtin="gradient" height="100" rgb1="1 1 1" rgb2="0 0 0" type="skybox" width="100"/>
+        <texture builtin="flat" height="1278" mark="cross" markrgb="1 1 1" name="texgeom" random="0.01" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" type="cube" width="127"/>
+        <texture builtin="checker" height="100" name="texplane" rgb1="0.13 0.5 0.13" rgb2="0.78 0.38 0.078" type="2d" width="100"/>
+        <material name="MatPlane" reflectance="0.5" shininess="1" specular="1" texrepeat="60 60" texture="texplane"/>
+        <material name="geom" texture="texgeom" texuniform="true"/>
+    </asset>
+    <worldbody>
+        <light cutoff="100" diffuse="1 1 1" dir="-0 0 -1.3" directional="true" exponent="1" pos="0 0 1.3" specular=".1 .1 .1" castshadow="false"/>
+        <geom conaffinity="1" condim="6" material="MatPlane" name="floor" pos="0 0 0" rgba="0.8 0.9 0.8 1" size="40 40 40" type="plane" solref="-25 -25"/>
+        <body name="robot" pos="0 0 0.47" euler="-2.5 0 180">
+            <camera name="track" mode="trackcom" pos="0 3 0.3" xyaxes="-1 0 0 0 0 1"/>
+            <joint axis="1 0 0" type="slide" armature="0" damping="0" limited="false" stiffness="0"/>
+            <joint axis="0 1 0" type="slide" armature="0" damping="0" limited="false" stiffness="0"/>
+            <joint axis="0 0 1" type="slide" armature="0" damping="0" limited="false" stiffness="0"/>
+            <joint axis="1 0 0" type="hinge" armature="0" damping="0" limited="false" stiffness="0"/>
+            <joint axis="0 1 0" type="hinge" armature="0" damping="0" limited="false" stiffness="0"/>
+            <joint axis="0 0 1" type="hinge" armature="0" damping="0" limited="false" stiffness="0"/>
+            <geom mesh="waist" />
+            <body name="right_hip" pos="0 -0.066 -0.078" quat="0.707105 0 0.707108 0">
+                <joint name="right_hip_joint" pos="0 0 0" axis="0 0 -1" range="-10 10"/>
+                <geom mesh="right_hip" />
+                <body name="right_thigh" pos="0.040816 -0.006421 0.04445" quat="0.706415 0.706417 0.0312497 0.0312495">
+                    <joint name="right_thigh_joint" pos="0 0 0" axis="0 0 -1" range="-30 15"/>
+                    <geom mesh="right_thigh" />
+                    <body name="right_leg" pos="0.15506 -0.12632 0.03745" quat="0.942151 0 0 -0.335188">
+                        <joint name="right_knee" pos="0 0 0" axis="0 0 -1" range="-5 45"/>
+                        <geom mesh="right_leg" />
+                        <body name="right_foot" pos="0.064592 0.18928 0.01195" quat="0.813326 0 0 0.581808">
+                            <joint name="right_ankle" pos="0 0 0" axis="0 0 -1" range="-45 5"/>
+                            <geom mesh="right_foot" />
+                        </body>
+                    </body>
+                </body>
+            </body>
+            <body name="left_hip" pos="0 0.066 -0.078" quat="0.707105 0 0.707108 0">
+                <joint name="left_hip_joint" pos="0 0 0" axis="0 0 1" range="-10 10"/>
+                <geom mesh="left_hip" />
+                <body name="left_thigh" pos="0.041005 0.0050758 0.04445" quat="0.705806 0.705808 -0.0428563 -0.0428561">
+                    <joint name="left_thigh_joint" pos="0 0 0" axis="0 0 -1" range="-30 15"/>
+                    <geom mesh="left_thigh" />
+                    <body name="left_leg" pos="0.16018 -0.11976 -0.04145" quat="0.948919 0 0 -0.31552">
+                        <joint name="left_knee" pos="0 0 0" axis="0 0 -1" range="-5 45"/>
+                        <geom mesh="left_leg" />
+                        <body name="left_foot" pos="0.075147 0.18535 -0.00795" quat="0.82938 0 0 0.558685">
+                            <joint name="left_ankle" pos="0 0 0" axis="0 0 -1" range="-45 5"/>
+                            <geom mesh="left_foot" />
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+
+    <actuator>
+        <motor name="right_hip" joint="right_hip_joint" gear="150"/>
+        <motor name="right_thigh" joint="right_thigh_joint" gear="150"/>
+        <motor name="right_knee" joint="right_knee" gear="150"/>
+        <motor name="left_hip" joint="left_hip_joint" gear="150"/>
+        <motor name="left_thigh" joint="left_thigh_joint" gear="150"/>
+        <motor name="left_knee" joint="left_knee" gear="150"/>
+    </actuator>
+</mujoco>
